@@ -1,0 +1,72 @@
+CREATE STUDENT
+Sid 		Name 		Sex 	Grade 		Dnumber
+'E12345678'	'Alistar'	'F'	'Senior'	1
+'E87654321'	'Kaiser'	'F'	'Senior'	1
+'E11111111'	'Fortune'	'M'	'Junior'	1
+'Q22222222'	'Yang'		'M'	'Sophomore'	2
+'Q33456789'	'Olaf'		'F'	'Fresh'		2
+'Q55544433'	'Akali'		'M'	'Fresh'		2
+'L11122333'	'Yi'		'F'	'Sophomore'	3
+'L33344555'	'Ash'		'M'	'Junior'	3
+'L66677888'	'Nunu'		'F'	'Fresh'		3
+'M11122333'	'Van'		'F'	'Sophomore'	4
+'M33344555'	'Lulu'		'M'	'Junior'	4
+'M66677888'	'J4'		'F'	'Fresh'		4
+CREATE DEPARTMENT
+Name		Location	Number
+'Engineering'	'South'		1
+'Art'		'East		2
+'Business'	'West'		3
+'Science'	'South'		4
+CREATE LECTURE
+Name 		Sex 	Tid 	Dnumber
+'Lux'		'M'	'E5566'	1
+'Kennen'	'M'	'Q5555'	2
+'Veigar'	'F'	'Q7788'	2
+'Twitch'	'F'	'L1111'	3
+'Xin'		'F'	'M9999'	4
+CREATE COURSE 
+Cnumber	Cname		Location	TeacherId	Dnumber
+'Q11'	'Art'		'South		'Q5555'		2		
+'Q12'	'Draw'		'East'		'Q7788'		2
+'E22'	'Engineering'	'West'		'E5566'		1
+'E11'	'Electronic'	'West'		'E5566'		1
+'M33'	'Math'		'East'		'M9999'		4
+'M56'	'Physic'	'North'		'M9999'		4
+'L99'	'Business'	'South'		'L1111'		3
+CREATE CHOOSE
+Sid		Cnumber		Score
+'E11111111'	'E22'		98
+'E11111111'	'E11'		56
+'E11111111'	'M56'		87
+'E11111111'	'M33'		88
+'E12345678'	'E22'		66
+'E12345678'	'E11'		77
+'E12345678'	'M56'		88
+'E12345678'	'M33'		99
+'E87654321'	'E22'		98
+'E87654321'	'E11'		65
+'E87654321'	'M56'		12
+'E87654321'	'M33'		23
+'Q22222222'	'Q11'		55
+'Q22222222'	'Q12'		67
+'Q22222222'	'M33'		75
+'Q22222222'	'L99'		74
+'Q22222222'	'E11'		43
+'Q33456789'	'M33'		12
+'Q33456789'	'M56'		74
+'Q55544433'	'M33'		99
+'Q55544433'	'M56'		96
+'L11122333'	'L99'		80
+'L11122333'	'Q11'		77
+'L11122333'	'Q12'		70
+'L66677888'	'M33'		84
+'L66677888'	'M56'		80
+'M11122333'	'M56'		90
+'M11122333'	'M33'		80
+'M11122333'	'E22'		88
+'M11122333'	'E11'		86
+'M33344555'	'E22'		94
+'M33344555'	'E11'		92
+'M66677888'	'M33'		77
+'M66677888'	'M56'		60

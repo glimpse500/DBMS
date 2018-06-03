@@ -1,0 +1,5 @@
+(
+	SELECT AVG(Score),SUM(Score),MAX(Score),MIN(Score),COUNT(*)
+	FROM CHOOSE 
+	WHERE  Cnumber = 'M56'
+)

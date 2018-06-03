@@ -1,0 +1,10 @@
+(
+	SELECT  S.Name,S.Grade
+	FROM    STUDENT S
+	WHERE   S.Dnumber  IN 
+	( 
+		SELECT  D.Number
+		FROM    DEPARTMENT D                                     
+		WHERE   D.Name ='Engineering'
+	)
+)

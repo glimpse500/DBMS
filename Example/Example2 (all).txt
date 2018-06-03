@@ -1,0 +1,5 @@
+(
+SELECT  *
+FROM    STUDENT S,DEPARTMENT D
+WHERE   D.Name = 'Engineering' AND D.Number = S.Dnumber
+)

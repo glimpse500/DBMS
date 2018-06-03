@@ -1,0 +1,42 @@
+(
+SELECT  E.Fname ,E.Lname, E.Address
+FROM    EMPLOYEE E,DEPARTMENT
+WHERE   Dname ='Research' AND  Dnumber= E.Dno
+)
+
+(
+SELECT  Fname,Lname,Address
+FROM    EMPLOYEE
+WHERE   Dno  IN ( 
+	SELECT  Dnumber
+	FROM    DEPARTMENT                                     
+	WHERE   Dname ='Research'
+	)
+)
+(
+	SELECT D.Essn
+	FROM DEPENDENT D ,EMPLOYEE E
+	WHERE E.Fname = D.Dependent_name  AND E.Sex = D.Sex
+	
+)
+(
+SELECT E.Fname, E.Lname
+FROM EMPLOYEE E
+WHERE	E.Ssn IN (
+		SELECT D.Essn
+		FROM DEPENDENT D
+		WHERE E.Fname = D.Dependent_name  AND E.Sex = D.Sex
+	)
+)
+(
+   SELECT   MAX(Salary),MIN(Salary),AVG(Salary)
+   FROM     EMPLOYEE,DEPARTMENT
+   WHERE    Dno=Dnumber AND Dname='Research'
+)
+(        SELECT       Pnumber,Pname,COUNT(*)
+         FROM         PROJECT,WORKS_ON
+         WHERE        Pnumber=Pno
+         GROUP BY     Pnumber,Pname
+         HAVING       COUNT(*)>2
+
+)

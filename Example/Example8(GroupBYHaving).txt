@@ -1,0 +1,12 @@
+(
+ SELECT Sid,AVG(Score),SUM(Score),MAX(Score),MIN(Score),COUNT(*)
+ FROM CHOOSE
+ WHERE Sid NOT IN (
+  SELECT S.Sid   FROM STUDENT S   WHERE S.Dnumber IN (
+   SELECT Number   FROM DEPARTMENT
+   WHERE Name = 'Engineering' AND Location = 'South'  OR Name = 'Art' OR Name = 'Business'
+  )
+ )
+GROUP BY Sid
+HAVING COUNT(*) > 1
+)

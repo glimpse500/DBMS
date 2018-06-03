@@ -1,0 +1,14 @@
+(
+	SELECT	Name,Grade
+	FROM	STUDENT
+	WHERE	Dnumber IN (
+		SELECT  D.Number
+		FROM    DEPARTMENT D
+		WHERE   D.Number  IN ( 
+			SELECT  P.Dnumber
+			FROM    PROFESSOR P                              
+			WHERE   P.Name = 'Xin' 
+		) OR D.Number = 1
+	) 
+
+)

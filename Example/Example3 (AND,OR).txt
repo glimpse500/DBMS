@@ -1,0 +1,5 @@
+(
+	SELECT S.Sid, C.Cnumber
+	FROM STUDENT S, COURSE C
+	WHERE S.Dnumber = C.Dnumber AND C.Cname = 'Engineering'  OR C.Cname = 'Physic' AND S.Dnumber = C.Dnumber
+)

@@ -1,0 +1,116 @@
+(
+SELECT  S.Name,S.Grade
+FROM    STUDENT S,DEPARTMENT D
+WHERE   D.Name = 'Engineering' AND D.Number = S.Dnumber
+)
+
+	(
+	SELECT  S.Name,S.Grade
+	FROM    STUDENT S
+	WHERE   S.Dnumber  IN ( 
+		SELECT  D.Number
+		FROM    DEPARTMENT D                                     
+		WHERE   D.Name ='Engineering'
+		)
+	)
+
+	(
+	SELECT  S.Name,S.Grade
+	FROM    STUDENT S
+	WHERE   S.Dnumber NOT IN ( 
+		SELECT  D.Number
+		FROM    DEPARTMENT D                                     
+		WHERE   D.Name ='Engineering'
+		)
+	)
+(
+	SELECT	Name,Grade
+	FROM	STUDENT
+	WHERE	Dnumber IN
+	(
+		SELECT  D.Number
+		FROM    DEPARTMENT D
+		WHERE   D.Number  IN 
+		( 
+			SELECT  P.Dnumber
+			FROM    PROFESSOR P                              
+			WHERE   P.Name ='Xin' 
+		)
+	) OR Dnumber = 1
+
+)
+
+
+(
+		SELECT S.Sid
+		FROM STUDENT S
+		WHERE S.Dnumber IN (
+			SELECT Number
+			FROM DEPARTMENT
+			WHERE Name = 'Engineering' 
+			)
+)
+
+
+(
+SELECT Sid,AVG(Score),SUM(Score),MAX(Score),MIN(Score),COUNT(*)
+FROM CHOOSE
+WHERE Sid IN 	(
+		SELECT S.Sid
+		FROM STUDENT S
+		WHERE S.Dnumber IN (
+			SELECT Number
+			FROM DEPARTMENT
+			WHERE Location = 'South'   OR Name = 'Art' OR Name = 'Business'
+			)
+	)
+GROUP BY Sid
+HAVING COUNT(*) > 1
+)
+
+(
+SELECT Sid,AVG(Score),SUM(Score),MAX(Score),MIN(Score),COUNT(*)
+FROM CHOOSE
+WHERE Sid NOT IN 	(
+		SELECT S.Sid
+		FROM STUDENT S
+		WHERE S.Dnumber IN (
+			SELECT Number
+			FROM DEPARTMENT
+			WHERE Name = 'Engineering' AND Location = 'South'  OR Name = 'Art' OR Name = 'Business'
+			)
+	)
+GROUP BY Sid
+HAVING COUNT(*) > 1
+)
+
+(
+SELECT Sid,AVG(Score),SUM(Score),MAX(Score),MIN(Score),COUNT(*)
+FROM CHOOSE
+WHERE Sid IN 	(
+		SELECT S.Sid
+		FROM STUDENT S
+		WHERE S.Dnumber IN (
+			SELECT Number
+			FROM DEPARTMENT
+			WHERE Name = 'Engineering' AND Location = 'South'  OR Name = 'Art' OR Name = 'Business'
+			)
+	)
+GROUP BY Sid
+HAVING COUNT(*) > 1
+)
+	(
+	SELECT S.Sid,C.Cnumber
+	FROM STUDENT S, COURSE C
+	WHERE S.Dnumber = C.Dnumber AND C.Cname = 'Engineering'
+	)
+(
+SELECT COUNT(*)
+FROM CHOOSE
+WHERE ( Sid ,  Cnumber) IN 
+	(
+	SELECT S.Sid, C.Cnumber
+	FROM STUDENT S, COURSE C
+	WHERE S.Dnumber = C.Dnumber AND C.Cname = 'Engineering'  OR C.Cname = 'Physic' AND S.Dnumber = C.Dnumber
+	)
+)
